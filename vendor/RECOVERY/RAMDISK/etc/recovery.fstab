@@ -1,0 +1,20 @@
+# mount point	fstype		device			[device2]
+
+/boot		emmc		boot
+
+##/*BEGIN PN: DTS2013021801038  Added by r00192136 2013/02/18*/
+#/*BEGIN PN:SPBB-1154,Added by l00192645, 2012/11/24*/
+/cache		ext4		/dev/block/mmcblk0p7
+/data		ext4		/dev/block/mmcblk0p8
+/misc		emmc		misc
+/pro_info	emmc		pro_info
+/recovery	emmc		recovery
+/sdcard		vfat		/dev/block/mmcblk1p1    /dev/block/mmcblk1
+/system		ext4		/dev/block/mmcblk0p5
+#/*BEGIN PN:DTS2013022106192 Deleted by liuxu 00192645, 2013/02/21*/
+#/Insdcard       vfat		/dev/block/mmcblk0p9
+#/*END PN:DTS2013022106192 Deleted by liuxu 00192645, 2013/02/21*/
+#/*END PN:SPBB-1154,Added by l00192645, 2012/11/24*/
+/cust           ext4            /dev/block/mmcblk0p6
+##/*END PN: DTS2013021801038  Added by r00192136 2013/02/18*/
+
