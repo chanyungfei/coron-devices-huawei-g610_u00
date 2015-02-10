@@ -54,7 +54,7 @@ vendor_remove_dirs := app vendor/operator/app delapp themes media/audio/notifica
 # The default value is Bluetooth.
 # You can configure the apk name in the vendor/system/app or vendor/system/pri-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := MtkBt Stk1_c17
+vendor_saved_apps := MtkBt
 
 ##############################################################################
 # The value decides which vendor apk you want to modify.
