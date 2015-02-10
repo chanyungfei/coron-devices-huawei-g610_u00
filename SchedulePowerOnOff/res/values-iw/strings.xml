@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="schedule_power_on_off_settings_title">הפעלה/כיבוי מתוזמנים</string>
+    <string name="schedule_power_on_off_time">שעה</string>
+    <string name="schedule_power_on_off_repeat">השמעה חוזרת</string>
+    <string name="schedule_power_on_off_set">הגדר הפעלה/כיבוי מתוזמנים</string>
+    <string name="schedule_power_on_set">הגדר הפעלה מתוזמנת</string>
+    <string name="schedule_power_off_set">הגדר כיבוי מתוזמן</string>
+    <string name="enable_schpwr">הפוך לזמין</string>
+    <string name="disable_schpwr">הפוך ללא זמין</string>
+    <string name="day">יום אחד</string>
+    <string name="days">" %s ימים"</string>
+    <string name="hour">שעה אחת</string>
+    <string name="hours">%s שעות</string>
+    <string name="minute">דקה אחת</string>
+    <string name="minutes">" %s דקות"</string>
+    <string name="every_day">כל יום</string>
+    <string name="never">אף פעם</string>
+    <string name="done">סיום</string>
+    <string name="revert">חזרה למצב הקודם</string>
+    <string name="schpwr_shutdown_message">ההתקן יכובה תוך %s שניות</string>
+    <string name="schpwr_shutdown_message_second">ההתקן יכובה תוך שנייה %s</string>
+</resources>
