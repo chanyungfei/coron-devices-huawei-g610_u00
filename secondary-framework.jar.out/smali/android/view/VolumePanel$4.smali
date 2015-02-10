@@ -55,7 +55,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     .line 374
     iget-object v1, p0, Landroid/view/VolumePanel$4;->this$0:Landroid/view/VolumePanel;
@@ -73,71 +73,6 @@
 
     invoke-virtual {v1, v2}, Landroid/view/VolumePanel;->sendMessage(Landroid/os/Message;)Z
 
-    .line 386
     :cond_0
-    :goto_0
     return-void
-
-    .line 376
-    :cond_1
-    const-string v1, "android.intent.action.SCREEN_OFF"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    .line 378
-    iget-object v1, p0, Landroid/view/VolumePanel$4;->this$0:Landroid/view/VolumePanel;
-
-    #getter for: Landroid/view/VolumePanel;->mDialog:Landroid/app/Dialog;
-    invoke-static {v1}, Landroid/view/VolumePanel;->access$600(Landroid/view/VolumePanel;)Landroid/app/Dialog;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/Dialog;->isShowing()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 379
-    iget-object v1, p0, Landroid/view/VolumePanel$4;->this$0:Landroid/view/VolumePanel;
-
-    #calls: Landroid/view/VolumePanel;->forceTimeout()V
-    invoke-static {v1}, Landroid/view/VolumePanel;->access$300(Landroid/view/VolumePanel;)V
-
-    goto :goto_0
-
-    .line 381
-    :cond_2
-    const-string v1, "android.intent.action.SKIN_CHANGED"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 383
-    iget-object v1, p0, Landroid/view/VolumePanel$4;->this$0:Landroid/view/VolumePanel;
-
-    #calls: Landroid/view/VolumePanel;->createSliders()V
-    invoke-static {v1}, Landroid/view/VolumePanel;->access$700(Landroid/view/VolumePanel;)V
-
-    .line 384
-    iget-object v1, p0, Landroid/view/VolumePanel$4;->this$0:Landroid/view/VolumePanel;
-
-    iget-object v2, p0, Landroid/view/VolumePanel$4;->this$0:Landroid/view/VolumePanel;
-
-    #getter for: Landroid/view/VolumePanel;->mActiveStreamType:I
-    invoke-static {v2}, Landroid/view/VolumePanel;->access$400(Landroid/view/VolumePanel;)I
-
-    move-result v2
-
-    #calls: Landroid/view/VolumePanel;->reorderSliders(I)V
-    invoke-static {v1, v2}, Landroid/view/VolumePanel;->access$800(Landroid/view/VolumePanel;I)V
-
-    goto :goto_0
 .end method
