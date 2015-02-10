@@ -207,19 +207,29 @@
 
     goto :goto_1
 
-    .line 336
     .restart local v5       #systemUri:Landroid/net/Uri;
     :cond_4
     const/4 v3, 0x0
 
     goto :goto_2
 
-    .line 345
     .restart local v3       #isPassiveChange:Z
     :pswitch_0
+    iget-object v7, p0, Lcom/mediatek/audioprofile/AudioProfileService$4;->this$0:Lcom/mediatek/audioprofile/AudioProfileService;
+
+    #getter for: Lcom/mediatek/audioprofile/AudioProfileService;->mExt:Lcom/mediatek/common/audioprofile/IAudioProfileExtension;
+    invoke-static {v7}, Lcom/mediatek/audioprofile/AudioProfileService;->access$200(Lcom/mediatek/audioprofile/AudioProfileService;)Lcom/mediatek/common/audioprofile/IAudioProfileExtension;
+
+    move-result-object v7
+
+    invoke-interface {v7}, Lcom/mediatek/common/audioprofile/IAudioProfileExtension;->shouldSyncGeneralRingtoneToOutdoor()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_6
+
     if-eqz v3, :cond_5
 
-    .line 346
     iget-object v7, p0, Lcom/mediatek/audioprofile/AudioProfileService$4;->this$0:Lcom/mediatek/audioprofile/AudioProfileService;
 
     #getter for: Lcom/mediatek/audioprofile/AudioProfileService;->mPredefinedKeys:Ljava/util/List;
@@ -330,14 +340,12 @@
 
     goto :goto_3
 
-    .line 363
+    :cond_6
     :pswitch_1
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_7
 
-    .line 364
     iput-object v5, v1, Lcom/mediatek/audioprofile/AudioProfileState;->mRingerStream:Landroid/net/Uri;
 
-    .line 365
     iget-object v7, p0, Lcom/mediatek/audioprofile/AudioProfileService$4;->this$0:Lcom/mediatek/audioprofile/AudioProfileService;
 
     iget-object v9, p0, Lcom/mediatek/audioprofile/AudioProfileService$4;->this$0:Lcom/mediatek/audioprofile/AudioProfileService;
@@ -376,8 +384,7 @@
 
     goto/16 :goto_3
 
-    .line 369
-    :cond_6
+    :cond_7
     const-string v7, "AudioProfileService"
 
     const-string v9, "Ringtone changed by itself, do nothing!"

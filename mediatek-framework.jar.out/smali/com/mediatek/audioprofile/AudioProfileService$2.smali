@@ -155,23 +155,33 @@
 
     goto :goto_0
 
-    .line 261
     :pswitch_0
     const/4 v4, 0x0
 
-    .line 262
     .local v4, minVolume:I
-    const/4 v3, 0x7
+    const/16 v3, 0xf
 
-    .line 263
     .local v3, maxVolume:I
     if-lez p2, :cond_2
 
-    const/4 v5, 0x7
+    const/16 v5, 0xf
 
     if-eq p2, v5, :cond_2
 
     .line 266
+    iget-object v5, p0, Lcom/mediatek/audioprofile/AudioProfileService$2;->this$0:Lcom/mediatek/audioprofile/AudioProfileService;
+
+    #getter for: Lcom/mediatek/audioprofile/AudioProfileService;->mExt:Lcom/mediatek/common/audioprofile/IAudioProfileExtension;
+    invoke-static {v5}, Lcom/mediatek/audioprofile/AudioProfileService;->access$200(Lcom/mediatek/audioprofile/AudioProfileService;)Lcom/mediatek/common/audioprofile/IAudioProfileExtension;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Lcom/mediatek/common/audioprofile/IAudioProfileExtension;->shouldSyncGeneralRingtoneToOutdoor()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
     iget-object v5, p0, Lcom/mediatek/audioprofile/AudioProfileService$2;->this$0:Lcom/mediatek/audioprofile/AudioProfileService;
 
     #getter for: Lcom/mediatek/audioprofile/AudioProfileService;->mPredefinedKeys:Ljava/util/List;

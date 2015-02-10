@@ -18,6 +18,8 @@
 # static fields
 .field public static final ACTION_PROFILE_CHANGED:Ljava/lang/String; = "com.mediatek.audioprofile.ACTION_PROFILE_CHANGED"
 
+.field public static final DEFAULT_MAX_VOLUME_OUTDOOR:I = 0xf
+
 .field public static final DEFAULT_NOTIFICATION_STREAM_URI:Landroid/net/Uri; = null
 
 .field public static final DEFAULT_RINGER_STREAM_URI:Landroid/net/Uri; = null
@@ -399,134 +401,101 @@
 
     sput-object v42, Lcom/mediatek/audioprofile/AudioProfileManager;->sDEFAULTSTATES:Ljava/util/HashMap;
 
-    .line 235
-    const/16 v23, 0x4
+    const/16 v23, 0x8
 
-    .line 236
     .local v23, DEFAULT_RINGER_VOLUME_GENERAL:I
     const/16 v26, 0x0
 
-    .line 237
     .local v26, DEFAULT_RINGER_VOLUME_SILENT:I
     const/16 v24, 0x0
 
-    .line 238
     .local v24, DEFAULT_RINGER_VOLUME_MEETING:I
-    const/16 v25, 0x7
+    const/16 v25, 0xf
 
-    .line 241
     .local v25, DEFAULT_RINGER_VOLUME_OUTDOOR:I
-    const/16 v19, 0x4
+    const/16 v19, 0x8
 
-    .line 242
     .local v19, DEFAULT_NOTIFICATION_VOLUME_GENERAL:I
     const/16 v22, 0x0
 
-    .line 243
     .local v22, DEFAULT_NOTIFICATION_VOLUME_SILENT:I
     const/16 v20, 0x0
 
-    .line 244
     .local v20, DEFAULT_NOTIFICATION_VOLUME_MEETING:I
-    const/16 v21, 0x7
+    const/16 v21, 0xf
 
-    .line 247
     .local v21, DEFAULT_NOTIFICATION_VOLUME_OUTDOOR:I
-    const/4 v3, 0x4
+    const/16 v3, 0x8
 
-    .line 248
     .local v3, DEFAULT_ALARM_VOLUME_GENERAL:I
     const/4 v6, 0x0
 
-    .line 249
     .local v6, DEFAULT_ALARM_VOLUME_SILENT:I
     const/4 v4, 0x0
 
-    .line 250
     .local v4, DEFAULT_ALARM_VOLUME_MEETING:I
-    const/4 v5, 0x7
+    const/16 v5, 0xf
 
-    .line 253
     .local v5, DEFAULT_ALARM_VOLUME_OUTDOOR:I
     const/16 v31, 0x0
 
-    .line 254
     .local v31, DEFAULT_VIBRATION_GENERAL:Z
     const/16 v34, 0x0
 
-    .line 255
     .local v34, DEFAULT_VIBRATION_SILENT:Z
     const/16 v32, 0x1
 
-    .line 256
     .local v32, DEFAULT_VIBRATION_MEETING:Z
     const/16 v33, 0x1
 
-    .line 262
     .local v33, DEFAULT_VIBRATION_OUTDOOR:Z
     const/4 v7, 0x1
 
-    .line 263
     .local v7, DEFAULT_DTMFTONE_GENERAL:Z
     const/4 v10, 0x0
 
-    .line 264
     .local v10, DEFAULT_DTMFTONE_SILENT:Z
     const/4 v8, 0x0
 
-    .line 265
     .local v8, DEFAULT_DTMFTONE_MEETING:Z
     const/4 v9, 0x1
 
-    .line 271
     .local v9, DEFAULT_DTMFTONE_OUTDOOR:Z
     const/16 v27, 0x0
 
-    .line 272
     .local v27, DEFAULT_SOUNDEFFECT_GENERAL:Z
     const/16 v30, 0x0
 
-    .line 273
     .local v30, DEFAULT_SOUNDEFFECT_SILENT:Z
     const/16 v28, 0x0
 
-    .line 274
     .local v28, DEFAULT_SOUNDEFFECT_MEETING:Z
     const/16 v29, 0x0
 
-    .line 277
     .local v29, DEFAULT_SOUNDEFFECT_OUTDOOR:Z
     const/4 v15, 0x1
 
-    .line 278
     .local v15, DEFAULT_LOCK_SCREEN_GENERAL:Z
     const/16 v18, 0x0
 
-    .line 279
     .local v18, DEFAULT_LOCK_SCREEN_SILENT:Z
     const/16 v16, 0x0
 
-    .line 280
     .local v16, DEFAULT_LOCK_SCREEN_MEETING:Z
     const/16 v17, 0x1
 
-    .line 286
     .local v17, DEFAULT_LOCK_SCREEN_OUTDOOR:Z
     const/4 v11, 0x1
 
-    .line 289
     .local v11, DEFAULT_HAPTIC_FEEDBACK_GENERAL:Z
     const/4 v14, 0x0
 
-    .line 290
     .local v14, DEFAULT_HAPTIC_FEEDBACK_SILENT:Z
     const/4 v12, 0x0
 
-    .line 291
     .local v12, DEFAULT_HAPTIC_FEEDBACK_MEETING:Z
     const/4 v13, 0x1
 
-    .line 294
     .local v13, DEFAULT_HAPTIC_FEEDBACK_OUTDOOR:Z
     new-instance v42, Lcom/mediatek/audioprofile/AudioProfileState$Builder;
 
@@ -548,11 +517,11 @@
 
     move-result-object v42
 
-    const/16 v43, 0x4
+    const/16 v43, 0x8
 
-    const/16 v44, 0x4
+    const/16 v44, 0x8
 
-    const/16 v45, 0x4
+    const/16 v45, 0x8
 
     invoke-virtual/range {v42 .. v45}, Lcom/mediatek/audioprofile/AudioProfileState$Builder;->volume(III)Lcom/mediatek/audioprofile/AudioProfileState$Builder;
 
@@ -809,11 +778,11 @@
 
     move-result-object v42
 
-    const/16 v43, 0x7
+    const/16 v43, 0xf
 
-    const/16 v44, 0x7
+    const/16 v44, 0xf
 
-    const/16 v45, 0x7
+    const/16 v45, 0xf
 
     invoke-virtual/range {v42 .. v45}, Lcom/mediatek/audioprofile/AudioProfileState$Builder;->volume(III)Lcom/mediatek/audioprofile/AudioProfileState$Builder;
 
@@ -1425,43 +1394,86 @@
 .end method
 
 .method private static getService()Lcom/mediatek/common/audioprofile/IAudioProfileService;
-    .locals 2
+    .locals 4
 
     .prologue
-    .line 204
-    sget-object v1, Lcom/mediatek/audioprofile/AudioProfileManager;->sService:Lcom/mediatek/common/audioprofile/IAudioProfileService;
+    sget-object v2, Lcom/mediatek/audioprofile/AudioProfileManager;->sService:Lcom/mediatek/common/audioprofile/IAudioProfileService;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 205
-    sget-object v1, Lcom/mediatek/audioprofile/AudioProfileManager;->sService:Lcom/mediatek/common/audioprofile/IAudioProfileService;
+    :try_start_0
+    sget-object v2, Lcom/mediatek/audioprofile/AudioProfileManager;->sService:Lcom/mediatek/common/audioprofile/IAudioProfileService;
 
-    .line 209
-    .local v0, binder:Landroid/os/IBinder;
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v3
+
+    invoke-interface {v2, v3}, Lcom/mediatek/common/audioprofile/IAudioProfileService;->setUserId(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .local v1, e:Landroid/os/RemoteException;
     :goto_0
-    return-object v1
+    sget-object v2, Lcom/mediatek/audioprofile/AudioProfileManager;->sService:Lcom/mediatek/common/audioprofile/IAudioProfileService;
 
-    .line 207
-    .end local v0           #binder:Landroid/os/IBinder;
+    .end local v1           #e:Landroid/os/RemoteException;
+    :goto_1
+    return-object v2
+
+    :catch_0
+    move-exception v1
+
+    .restart local v1       #e:Landroid/os/RemoteException;
+    const-string v2, "AudioProfileManager"
+
+    const-string v3, "Set user id exception"
+
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    .end local v1           #e:Landroid/os/RemoteException;
     :cond_0
-    const-string v1, "audioprofile"
+    const-string v2, "audioprofile"
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 208
-    .restart local v0       #binder:Landroid/os/IBinder;
+    .local v0, binder:Landroid/os/IBinder;
     invoke-static {v0}, Lcom/mediatek/common/audioprofile/IAudioProfileService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/mediatek/common/audioprofile/IAudioProfileService;
 
-    move-result-object v1
+    move-result-object v2
 
-    sput-object v1, Lcom/mediatek/audioprofile/AudioProfileManager;->sService:Lcom/mediatek/common/audioprofile/IAudioProfileService;
+    sput-object v2, Lcom/mediatek/audioprofile/AudioProfileManager;->sService:Lcom/mediatek/common/audioprofile/IAudioProfileService;
 
-    .line 209
-    sget-object v1, Lcom/mediatek/audioprofile/AudioProfileManager;->sService:Lcom/mediatek/common/audioprofile/IAudioProfileService;
+    :try_start_1
+    sget-object v2, Lcom/mediatek/audioprofile/AudioProfileManager;->sService:Lcom/mediatek/common/audioprofile/IAudioProfileService;
 
-    goto :goto_0
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v3
+
+    invoke-interface {v2, v3}, Lcom/mediatek/common/audioprofile/IAudioProfileService;->setUserId(I)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+
+    :goto_2
+    sget-object v2, Lcom/mediatek/audioprofile/AudioProfileManager;->sService:Lcom/mediatek/common/audioprofile/IAudioProfileService;
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v1
+
+    .restart local v1       #e:Landroid/os/RemoteException;
+    const-string v2, "AudioProfileManager"
+
+    const-string v3, "Set user id exception"
+
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
 .end method
 
 .method public static getSoundEffectKey(Ljava/lang/String;)Ljava/lang/String;
