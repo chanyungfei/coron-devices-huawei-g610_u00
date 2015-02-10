@@ -1,3 +1,6 @@
     <header android:icon="@drawable/ic_settings_schpwronoff" android:id="@+id/power_settings" android:title="@string/schedule_power_on_off_settings_title">
         <intent android:action="com.android.settings.SCHEDULE_POWER_ON_OFF_SETTING" />
     </header>
+    <header android:icon="@drawable/ic_settings_recovery" android:id="@+id/addsetting2" android:title="@string/addsetting2">
+        <intent android:action="android.settings_ex.MEMORY_CARD_SETTINGS" />
+    </header>
