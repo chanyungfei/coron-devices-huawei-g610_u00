@@ -149,6 +149,10 @@ override_property += \
     ro.baidu.asec.type=1 \
     ro.baidu.romer=Po_Chan \
     ro.baidu.romerinfo=http://www.weibo.com/pochanL \
+override_property += \
+romjd.rom.id=c7a7e20f-b48b-469a-964c-48f445e724dd \
+romjd.rom.version=baidurom67 \
+romjd.rom.version.code=1 \
 
 ##############################################################################
 # The value decides which property you will remove from the build.prop.
